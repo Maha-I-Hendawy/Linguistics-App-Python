@@ -1,20 +1,20 @@
-class Text:
-	def __init__(self, text):
-		self.text = text 
-
-	def __str__(self):
-		return f"{self.text}"
-
-	def words(self):
-		word = [w.replace('.', '') for w in self.text.split(' ')]
-		print(word)
+from text import Text
+from flask import Flask, render_template, request, url_for, redirect
 
 
-	def sentences(self):
-		sentence = [s.replace('.', '') for s in self.text.split('.')]
-		print(sentence)
+app = Flask(__name__)
 
 
+
+@app.route('/', methods=['GET', 'POST'])
+def home():
+	if request.method == 'POST':
+		text = request.form['text']
+		txt = Text(text)
+		words = txt.words()
+		sentences = text.sentences()
+		return redirect(request.url)
+	return render_template("home.html", words=words, sentences=sentences)
 
 
 
