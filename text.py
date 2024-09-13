@@ -7,12 +7,10 @@ class Text:
 
 	def words(self):
 		word = [w.replace('.', '') for w in self.text.split(' ')]
-		print(word)
+		
 
 
 	def sentences(self):
 		sentence = [s.replace('.', '') for s in self.text.split('.')]
-		print(sentence)
-
-
+		
 

@@ -3,7 +3,35 @@
 {% block content %}
    <h1>Text:</h1>
    <form action="" method="post">
-   	<textarea name="text">Enter Text Here..</textarea>
-   	<input type="submit" value="Translate">
+   	<textarea name="text"></textarea>
+   	<input type="submit" value="Words">
+      <input type="submit" value="Sentences">
    </form>
+   <ul style="list-style-type: none;">
+      {% for text in txt %}
+          
+         {% for t in text.text.split(' ') %}
+            
+      
+               <li>{{ t }}</li>
+        
+            
+         {% endfor %}
+        
+      {% endfor %}
+   </ul>
+   <ul style="list-style-type: none;">
+      {% for text in txt %}
+          
+         {% for t in text.text.split('.') %}
+            
+      
+               <li>{{ t }}</li>
+        
+            
+         {% endfor %}
+        
+      {% endfor %}
+   </ul>
+   
 {% endblock %}
